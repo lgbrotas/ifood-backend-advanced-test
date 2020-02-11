@@ -1,6 +1,5 @@
 package com.ifood.backendtest.dto.open_weather_map;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.Objects;
 
@@ -8,8 +7,6 @@ public class OpenWeatherMapCoordDto {
 
     private float lon;
     private float lat;
-
-    public OpenWeatherMapCoordDto(){}
 
     public OpenWeatherMapCoordDto(float lon, float lat) {
         this.lon = lon;

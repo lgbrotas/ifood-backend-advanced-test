@@ -1,21 +1,24 @@
 package com.ifood.backendtest.dto.open_weather_map;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
 public class OpenWeatherMapMainDto {
 
-    private Long temp;
-    private Long feelsLike;
-    private Long tempMin;
-    private Long tempMax;
-    private Long pressure;
-    private Long humidity;
+    private float temp;
+    @JsonProperty("feels_like")
+    private float feelsLike;
 
-    public OpenWeatherMapMainDto(){}
+    @JsonProperty("temp_min")
+    private float tempMin;
 
-    public OpenWeatherMapMainDto(Long temp, Long feelsLike, Long tempMin, Long tempMax, Long pressure, Long humidity) {
+    @JsonProperty("temp_max")
+    private float tempMax;
+    private float pressure;
+    private float humidity;
+
+    public OpenWeatherMapMainDto(float temp, float feelsLike, float tempMin, float tempMax, float pressure, float humidity) {
         this.temp = temp;
         this.feelsLike = feelsLike;
         this.tempMin = tempMin;
@@ -24,51 +27,51 @@ public class OpenWeatherMapMainDto {
         this.humidity = humidity;
     }
 
-    public Long getTemp() {
+    public float getTemp() {
         return temp;
     }
 
-    public Long getFeelsLike() {
+    public float getFeelsLike() {
         return feelsLike;
     }
 
-    public Long getTempMin() {
+    public float getTempMin() {
         return tempMin;
     }
 
-    public Long getTempMax() {
+    public float getTempMax() {
         return tempMax;
     }
 
-    public Long getPressure() {
+    public float getPressure() {
         return pressure;
     }
 
-    public Long getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setTemp(Long temp) {
+    public void setTemp(float temp) {
         this.temp = temp;
     }
 
-    public void setFeelsLike(Long feelsLike) {
+    public void setFeelsLike(float feelsLike) {
         this.feelsLike = feelsLike;
     }
 
-    public void setTempMin(Long tempMin) {
+    public void setTempMin(float tempMin) {
         this.tempMin = tempMin;
     }
 
-    public void setTempMax(Long tempMax) {
+    public void setTempMax(float tempMax) {
         this.tempMax = tempMax;
     }
 
-    public void setPressure(Long pressure) {
+    public void setPressure(float pressure) {
         this.pressure = pressure;
     }
 
-    public void setHumidity(Long humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 
