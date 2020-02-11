@@ -1,7 +1,9 @@
 package com.ifood.backendtest.endpoints;
 
 import com.ifood.backendtest.dto.CityDto;
+import com.ifood.backendtest.model.TrackSuggestion;
 import com.ifood.backendtest.service.OpenWeatherMapService;
+import com.ifood.backendtest.service.TrackSuggestionService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -17,11 +19,11 @@ import java.io.UnsupportedEncodingException;
 @RequestMapping("/1/track-suggestion")
 public class TrackSuggestionEndpoint {
 
-    private final OpenWeatherMapService openWeatherMapService;
+    private final TrackSuggestionService trackSuggestionService;
 
     @Autowired
-    public TrackSuggestionEndpoint(OpenWeatherMapService openWeatherMapService) {
-        this.openWeatherMapService = openWeatherMapService;
+    public TrackSuggestionEndpoint(TrackSuggestionService trackSuggestionService) {
+        this.trackSuggestionService = trackSuggestionService;
     }
 
     @ApiOperation(value = "Return a track according to the temperature of the informed city.")
@@ -30,9 +32,10 @@ public class TrackSuggestionEndpoint {
         @ApiResponse(code = 500, message = "Some error occurs during the process."),
     })
     @PostMapping(value = "get", produces="application/json")
-    public ResponseEntity<Object> trackSuggestion(@RequestBody CityDto location) {
+    public ResponseEntity<TrackSuggestion> trackSuggestion(@RequestBody CityDto location) {
+
         return ResponseEntity.status(HttpStatus.OK).body(
-            openWeatherMapService.requestWeatherByCity(location.getCityName())
+                trackSuggestionService.managerTrackSuggestion(location)
         );
     }
 }
