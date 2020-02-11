@@ -5,11 +5,11 @@ import java.util.Objects;
 public class City {
 
     private String name;
-    private Long latitude;
-    private Long longitude;
+    private float latitude;
+    private float longitude;
     private Temperature temperature;
 
-    private City(String name, Long latitude, Long longitude, Temperature temperature) {
+    private City(String name, float latitude, float longitude, Temperature temperature) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -20,11 +20,11 @@ public class City {
         return name;
     }
 
-    public Long getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public Long getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
@@ -60,8 +60,8 @@ public class City {
 
     public static final class Builder {
         private String name;
-        private Long latitude;
-        private Long longitude;
+        private float latitude;
+        private float longitude;
         private Temperature temperature;
 
         public Builder setName(String name) {
@@ -69,12 +69,12 @@ public class City {
             return this;
         }
 
-        public Builder setLatitude(Long latitude) {
+        public Builder setLatitude(float latitude) {
             this.latitude = latitude;
             return this;
         }
 
-        public Builder setLongitude(Long longitude) {
+        public Builder setLongitude(float longitude) {
             this.longitude = longitude;
             return this;
         }
