@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 public class TrackSuggestionService {
 
     private final OpenWeatherMapService openWeatherMapService;
+    private final SpotifyService spotifyService;
 
     @Autowired
-    public TrackSuggestionService(OpenWeatherMapService openWeatherMapService) {
+    public TrackSuggestionService(OpenWeatherMapService openWeatherMapService, SpotifyService spotifyService) {
         this.openWeatherMapService = openWeatherMapService;
+        this.spotifyService = spotifyService;
     }
 
     public TrackSuggestion managerTrackSuggestion(CityDto location){
@@ -22,6 +24,7 @@ public class TrackSuggestionService {
 
         trackSuggestion.proccessTrackType();
 
+        spotifyService.testSpotiftGetToken();
 
         return trackSuggestion;
     }
